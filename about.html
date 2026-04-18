@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us</title>
+
+<link rel="stylesheet" href="css/styles1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+color:white;
+}
+
+/* 🔥 BACKGROUND + OVERLAY */
+
+.about-bg{
+position:relative;
+background-image:url("images/all.jpg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+padding:60px 20px;
+min-height:100vh;
+}
+
+.about-bg::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+z-index:0;
+}
+
+/* CONTENT ABOVE OVERLAY */
+
+.about-container,
+.mission,
+.features{
+position:relative;
+z-index:1;
+}
+
+/* ABOUT SECTION */
+
+.about-container{
+text-align:center;
+max-width:900px;
+margin:auto;
+}
+
+.about-container h1{
+font-size:36px;
+margin-bottom:15px;
+text-shadow:0 2px 10px rgba(0,0,0,0.6);
+}
+
+.about-container p{
+font-size:18px;
+line-height:1.7;
+color:#f1f1f1;
+}
+
+/* MISSION */
+
+.mission{
+margin-top:50px;
+text-align:center;
+}
+
+.mission h2{
+font-size:28px;
+margin-bottom:10px;
+text-shadow:0 2px 10px rgba(0,0,0,0.6);
+}
+
+.mission p{
+font-size:17px;
+color:#e5e5e5;
+}
+
+/* FEATURES */
+
+.features{
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:50px;
+flex-wrap:wrap;
+}
+
+/* 🔥 GLASSMORPHISM CARDS */
+
+.feature-card{
+background: rgba(255,255,255,0.15);
+backdrop-filter: blur(12px);
+color:white;
+padding:25px;
+border-radius:12px;
+width:230px;
+text-align:center;
+transition:all 0.3s ease;
+box-shadow:0 8px 20px rgba(0,0,0,0.4);
+border:1px solid rgba(255,255,255,0.2);
+}
+
+.feature-card i{
+font-size:28px;
+margin-bottom:10px;
+color:#60a5fa;
+}
+
+/* TEXT */
+
+.feature-card h3{
+color:white;
+}
+
+.feature-card p{
+color:#e5e5e5;
+}
+
+/* HOVER EFFECT */
+
+.feature-card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 15px 30px rgba(0,0,0,0.6);
+}
+
+/* 📱 RESPONSIVE */
+
+@media(max-width:768px){
+
+.about-container h1{
+font-size:26px;
+}
+
+.about-container p,
+.mission p{
+font-size:15px;
+padding:0 10px;
+}
+
+.features{
+flex-direction:column;
+align-items:center;
+}
+
+.feature-card{
+width:90%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="navbar">
+
+<div class="nav-logo border">
+<div class="logo"></div>
+</div>
+
+<div class="nav-address border">
+<p class="add-first">Deliver to</p>
+<div class="add-icon">
+<i class="fa-solid fa-location-dot"></i>
+<p class="add-second">India</p>
+</div>
+</div>
+
+<div class="nav-search">
+
+<select class="search-select">
+<option>All</option>
+</select>
+
+<input placeholder="Search Kshopify" class="search-input" id="searchBox">
+
+<div class="searchicon" onclick="searchProduct()">
+<i class="fa-solid fa-magnifying-glass"></i>
+</div>
+
+</div>
+
+<div class="nav-signin border" id="signinBox">
+<p><span id="userText">Hello, sign in</span></p>
+</div>
+
+<div class="nav-cart border" onclick="window.location.href='cart.html'">
+<i class="fa-solid fa-cart-arrow-down"></i>
+Cart
+</div>
+
+</div>
+
+<div class="pannel">
+
+<div class="pannel-all">
+<a href="all.html" style="color:white;text-decoration:none;">
+<i class="fa-solid fa-bars"></i> All
+</a>
+</div>
+
+<div class="pannel-ops">
+<a href="index.html" style="text-decoration:none;color:white;">Home</a>
+<a href="about.html" style="text-decoration:none;color:white;">About Us</a>
+<a href="service.html" style="text-decoration:none;color:white;">Customer Service</a>
+<a href="categories.html" style="text-decoration:none;color:white;">Categories</a>
+<a href="contact.html" style="text-decoration:none;color:white;">Contact Us</a>
+</div>
+
+<div class="pannel-deals">
+Shop deals in electronics
+</div>
+
+</div>
+
+</header>
+
+<!-- 🔥 MAIN CONTENT -->
+
+<div class="about-bg">
+
+<div class="about-container">
+
+<h1>About Kshopify</h1>
+
+<p>
+Kshopify is an online shopping platform where users can buy electronics,
+clothes, shoes, smart watches, and gaming products easily. Our platform
+focuses on providing a smooth shopping experience with secure payments
+and reliable delivery.
+</p>
+
+</div>
+
+<div class="mission">
+
+<h2>Our Mission</h2>
+
+<p>
+Our mission is to make online shopping simple, fast, and accessible
+for everyone by providing quality products and excellent customer service.
+</p>
+
+</div>
+
+<div class="features">
+
+<div class="feature-card">
+<i class="fa-solid fa-truck"></i>
+<h3>Fast Delivery</h3>
+<p>Quick and reliable delivery for all your orders.</p>
+</div>
+
+<div class="feature-card">
+<i class="fa-solid fa-lock"></i>
+<h3>Secure Payment</h3>
+<p>Safe and encrypted payment system for customers.</p>
+</div>
+
+<div class="feature-card">
+<i class="fa-solid fa-headset"></i>
+<h3>24/7 Support</h3>
+<p>Customer support team available anytime.</p>
+</div>
+
+</div>
+
+</div>
+
+<script src="js/auth.js"></script>
+<script src="js/search.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Secure Checkout - Kshopify</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f3f3f3;
+margin:0;
+}
+
+
+
+.topbar{
+background:#131921;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:24px;
+font-weight:bold;
+color:#ff9900;
+}
+
+
+
+.checkout-container{
+display:flex;
+justify-content:center;
+padding:40px;
+}
+
+.summary{
+width:100%;
+max-width:400px;   
+background:white;
+padding:25px;
+border-radius:8px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+
+
+.continue{
+background:#ffd814;
+border:none;
+padding:12px;
+width:100%;
+border-radius:20px;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* FORM */
+
+.order-form{
+display:none;
+margin-top:20px;
+}
+
+input, textarea, select{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+.confirm{
+background:#ff9900;
+border:none;
+padding:12px;
+margin-top:15px;
+width:100%;
+cursor:pointer;
+font-weight:bold;
+border-radius:6px;
+}
+
+
+
+.success{
+display:none;
+margin-top:20px;
+padding:15px;
+background:#e6ffe6;
+border-radius:8px;
+color:green;
+font-size:18px;
+text-align:center;
+}
+
+
+
+
+@media (max-width: 768px){
+
+.checkout-container{
+padding:20px;
+}
+
+.summary{
+padding:20px;
+}
+
+.topbar{
+flex-direction:column;
+gap:10px;
+text-align:center;
+}
+
+}
+
+
+@media (max-width: 480px){
+
+.checkout-container{
+padding:15px;
+}
+
+.summary{
+padding:15px;
+border-radius:0;
+box-shadow:none;
+}
+
+.logo{
+font-size:20px;
+}
+
+.topbar{
+flex-direction:column;
+gap:8px;
+padding:10px;
+}
+
+input, textarea, select{
+font-size:14px;
+padding:8px;
+}
+
+.continue, .confirm{
+padding:10px;
+font-size:14px;
+}
+
+.success{
+font-size:16px;
+padding:12px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="topbar">
+<div class="logo">KShopify</div>
+<div>Secure Checkout</div>
+<div>Cart</div>
+</div>
+
+<div class="checkout-container">
+
+<div class="summary">
+
+<button class="continue" onclick="showForm()">
+Continue
+</button>
+
+<hr>
+
+<p>Items: <span id="itemCount"></span></p>
+<p><b>Total Amount: ₹<span id="totalPrice"></span></b></p>
+
+
+
+<div class="order-form" id="orderForm">
+
+<h3>Enter Delivery Details</h3>
+<label for="name">Name:</label>
+<input type="text" id="name" placeholder="Full Name" required>
+<label for="phone">Phone Number</label>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+<label for="email">E-mail</label>
+<input type="email" id="email" placeholder="Email Address" required>
+<label for="address">Address</label>
+<textarea id="address" placeholder="Full Address" required></textarea>
+
+<select id="payment">
+<option>Cash on Delivery</option>
+</select>
+
+<button class="confirm" onclick="confirmOrder()">
+Confirm Order
+</button>
+
+</div>
+
+
+
+<div class="success" id="successMsg">
+🎉 Your order has been confirmed!
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+if(cart.length === 0){
+alert("Your cart is empty");
+window.location.href = "cart.html";
+}
+
+let total = 0;
+let itemCount = 0;
+
+cart.forEach(item=>{
+total += item.price * item.quantity;
+itemCount += item.quantity;
+});
+
+document.getElementById("totalPrice").innerText = total;
+document.getElementById("itemCount").innerText = itemCount;
+
+function showForm(){
+document.getElementById("orderForm").style.display="block";
+}
+
+function confirmOrder(){
+
+let name = document.getElementById("name").value;
+let phone = document.getElementById("phone").value;
+let email = document.getElementById("email").value;
+let address = document.getElementById("address").value;
+
+if(name === "" || phone === "" || email === "" || address === ""){
+alert("Please fill all details");
+return;
+}
+
+if(phone.length < 10){
+alert("Enter valid phone number");
+return;
+}
+
+document.getElementById("orderForm").style.display="none";
+document.getElementById("successMsg").style.display="block";
+document.querySelector(".continue").style.display="none";
+
+localStorage.removeItem("cart");
+}
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Service</title>
+
+<link rel="stylesheet" href="css/styles1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+<style>
+
+
+
+body{
+margin:0;
+color:white;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+
+
+.service-bg{
+position:relative;
+background-image:url("images/service.jpg"); 
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+padding:60px 20px;
+min-height:100vh;
+}
+
+.service-bg::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+z-index:0;
+}
+
+/* CONTENT ABOVE OVERLAY */
+
+.service-container,
+.support-options,
+.faq{
+position:relative;
+z-index:1;
+}
+
+/* MAIN SECTION */
+
+.service-container{
+padding-top:20px;
+text-align:center;
+max-width:900px;
+margin:auto;
+}
+
+.service-container p{
+margin-top:10px;
+font-size:18px;
+color:#e5e5e5;
+}
+
+/* SUPPORT CARDS */
+
+.support-options{
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:50px;
+flex-wrap:wrap;
+}
+
+
+
+.support-card{
+background: rgba(255,255,255,0.15);
+backdrop-filter: blur(12px);
+color:white;
+padding:25px;
+border-radius:12px;
+width:220px;
+transition:0.3s;
+box-shadow:0 8px 20px rgba(0,0,0,0.4);
+border:1px solid rgba(255,255,255,0.2);
+text-align:center;
+}
+
+.support-card i{
+font-size:28px;
+margin-bottom:10px;
+color:#60a5fa;
+}
+
+
+
+.support-card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 15px 30px rgba(0,0,0,0.6);
+}
+
+
+
+.faq{
+margin-top:60px;
+text-align:center;
+padding:0 20px;
+}
+
+.faq h2{
+margin-bottom:20px;
+}
+
+.faq p{
+color:#e5e5e5;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.support-options{
+flex-direction:column;
+align-items:center;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="navbar">
+
+<div class="nav-logo border">
+<div class="logo"></div>
+</div>
+
+<div class="nav-address border">
+<p class="add-first">Deliver to</p>
+<div class="add-icon">
+<i class="fa-solid fa-location-dot"></i>
+<p class="add-second">India</p>
+</div>
+</div>
+
+<div class="nav-search">
+<select class="search-select">
+<option>All</option>
+</select>
+
+<input placeholder="Search Kshopify" class="search-input" id="searchBox">
+
+<div class="searchicon" onclick="searchProduct()">
+<i class="fa-solid fa-magnifying-glass"></i>
+</div>
+</div>
+
+<div class="nav-signin border" id="signinBox">
+<p><span id="userText">Hello, sign in</span></p>
+</div>
+
+<div class="nav-cart border" onclick="window.location.href='cart.html'">
+<i class="fa-solid fa-cart-arrow-down"></i>
+Cart
+</div>
+
+</div>
+
+<div class="pannel">
+
+<div class="pannel-all">
+<a href="all.html" style="color:white;text-decoration:none;">
+<i class="fa-solid fa-bars"></i> All
+</a>
+</div>
+
+<div class="pannel-ops">
+
+<a href="index.html" style="text-decoration:none;color:white;">Home</a>
+
+<a href="about.html" style="text-decoration:none;color:white;">About Us</a>
+
+<a href="service.html" style="text-decoration:none;color:white;">Customer Service</a>
+
+<a href="categories.html" style="text-decoration:none;color:white;">Categories</a>
+
+<a href="contact.html" style="text-decoration:none;color:white;">Contact Us</a>
+
+</div>
+
+<div class="pannel-deals">
+Shop deals in electronics
+</div>
+
+</div>
+
+</header>
+
+
+
+<div class="service-bg">
+
+<div class="service-container">
+
+<h1>Customer Service</h1>
+
+<p>
+If you have any issues with orders, payments, or returns,
+our support team is here to help you anytime.
+</p>
+
+</div>
+
+<div class="support-options">
+
+<div class="support-card">
+<i class="fa-solid fa-box"></i>
+<h3>Order Issues</h3>
+<p>Get help with tracking or managing your orders.</p>
+</div>
+
+<div class="support-card">
+<i class="fa-solid fa-credit-card"></i>
+<h3>Payment Help</h3>
+<p>Support for payment errors and refund requests.</p>
+</div>
+
+<div class="support-card">
+<i class="fa-solid fa-rotate-left"></i>
+<h3>Returns</h3>
+<p>Easy return process for damaged or unwanted items.</p>
+</div>
+
+</div>
+
+<div class="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<p><b>How can I track my order?</b></p>
+<p>You can track your order from the order history section in your account.</p>
+
+<p><b>How do I request a refund?</b></p>
+<p>Refunds can be requested within 7 days of delivery through customer support.</p>
+
+</div>
+
+</div>
+
+<script src="js/auth.js"></script>
+<script src="js/search.js"></script>
+
+</body>
+</html>

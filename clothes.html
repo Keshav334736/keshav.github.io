@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clothes - Kshopify</title>
+
+<link rel="stylesheet" href="css/styles1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+<style>
+
+h1{
+margin-top:40px;
+font-size:32px;
+text-align:center;
+}
+
+.products{
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+flex-wrap:wrap;
+padding:20px;
+}
+
+.product-card{
+background:white;
+padding:20px;
+border-radius:12px;
+width:260px;
+box-shadow:0 6px 14px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.product-card:hover{
+transform:translateY(-8px);
+box-shadow:0 12px 25px rgba(0,0,0,0.3);
+}
+
+.product-card img{
+width:100%;
+height:170px;
+object-fit:contain;
+}
+
+.price{
+font-size:20px;
+font-weight:bold;
+color:#B12704;
+margin-top:10px;
+}
+
+.old-price{
+text-decoration:line-through;
+color:gray;
+font-size:14px;
+margin-left:6px;
+}
+
+.discount{
+background:#cc0c39;
+color:white;
+font-size:12px;
+padding:3px 8px;
+border-radius:5px;
+margin-left:6px;
+}
+
+.desc{
+font-size:14px;
+color:#555;
+margin:10px 0;
+}
+
+.buy{
+background:#ff9900;
+border:none;
+padding:10px;
+margin-top:10px;
+width:100%;
+cursor:pointer;
+font-weight:bold;
+border-radius:5px;
+}
+
+.buy:hover{
+background:#f08804;
+}
+
+.cart{
+background:#232f3e;
+color:white;
+border:none;
+padding:10px;
+margin-top:5px;
+width:100%;
+cursor:pointer;
+font-weight:bold;
+border-radius:5px;
+}
+
+.cart:hover{
+background:#111a24;
+}
+
+@media(max-width:768px){
+.products{
+flex-direction:column;
+align-items:center;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="navbar">
+
+<div class="nav-logo border">
+<div class="logo"></div>
+</div>
+
+<div class="nav-address border">
+<p class="add-first">Deliver to</p>
+<div class="add-icon">
+<i class="fa-solid fa-location-dot"></i>
+<p class="add-second">India</p>
+</div>
+</div>
+
+
+
+<div class="nav-search">
+
+<select class="search-select">
+<option>All</option>
+</select>
+
+<input
+class="search-input"
+placeholder="Search Kshopify"
+id="searchBox">
+
+<div class="searchicon" onclick="searchProduct()">
+<i class="fa-solid fa-magnifying-glass"></i>
+</div>
+
+</div>
+
+<div class="nav-signin border" id="signinBox">
+<p><span id="userText">Hello, sign in</span></p>
+</div>
+
+<div class="nav-cart border"
+onclick="openCart()"
+onmouseover="showCartPreview()"
+onmouseout="hideCartPreview()"
+style="position:relative">
+
+<i class="fa-solid fa-cart-arrow-down"></i>
+Cart (<span id="cartCount">0</span>)
+
+<div id="cartPreview"
+style="display:none;position:absolute;background:white;color:black;width:250px;right:0;top:40px;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,0.2);z-index:1000">
+</div>
+
+</div>
+
+</div>
+
+
+<div class="pannel">
+
+<div class="pannel-all">
+<a href="all.html" style="text-decoration:none;color:white;">
+<i class="fa-solid fa-bars"></i> All
+</a>
+</div>
+
+<div class="pannel-ops">
+<a href="index.html" style="text-decoration:none;color:white;">Home</a>
+<a href="about.html" style="text-decoration:none;color:white;">About Us</a>
+<a href="service.html" style="text-decoration:none;color:white;">Customer Service</a>
+<a href="categories.html" style="text-decoration:none;color:white;">Categories</a>
+<a href="contact.html" style="text-decoration:none;color:white;">Contact Us</a>
+</div>
+
+<div class="pannel-deals">
+Shop deals in electronics
+</div>
+
+</div>
+
+</header>
+
+
+<h1>Popular Clothes</h1>
+
+
+<div class="products">
+
+<!-- SHIRT -->
+
+<div class="product-card">
+
+<img src="images/shirt.jpg">
+
+<h3>Formal Shirt</h3>
+
+<div class="price">
+₹1,299
+<span class="old-price">₹2,199</span>
+<span class="discount">41% off</span>
+</div>
+
+<p class="desc">
+Premium cotton formal shirt perfect for office and business wear.
+</p>
+
+<button class="buy"
+onclick="buyNow('Formal Shirt',1299,'shirt.jpg')">
+Buy Now
+</button>
+
+<button class="cart"
+onclick="addToCart('Formal Shirt',1299,'shirt.jpg')">
+Add to Cart
+</button>
+
+</div>
+
+
+<!-- TSHIRT -->
+
+<div class="product-card">
+
+<img src="images/tshirt.jpg">
+
+<h3>Casual T-Shirt</h3>
+
+<div class="price">
+₹699
+<span class="old-price">₹1,199</span>
+<span class="discount">42% off</span>
+</div>
+
+<p class="desc">
+Comfortable casual cotton t-shirt perfect for daily wear.
+</p>
+
+<button class="buy"
+onclick="buyNow('Casual T-Shirt',699,'tshirt.jpg')">
+Buy Now
+</button>
+
+<button class="cart"
+onclick="addToCart('Casual T-Shirt',699,'tshirt.jpg')">
+Add to Cart
+</button>
+
+</div>
+
+
+<!-- JACKET -->
+
+<div class="product-card">
+
+<img src="images/jacket.jpg">
+
+<h3>Winter Jacket</h3>
+
+<div class="price">
+₹2,499
+<span class="old-price">₹3,999</span>
+<span class="discount">37% off</span>
+</div>
+
+<p class="desc">
+Warm winter jacket with stylish design and comfortable fit.
+</p>
+
+<button class="buy"
+onclick="buyNow('Winter Jacket',2499,'jacket.jpg')">
+Buy Now
+</button>
+
+<button class="cart"
+onclick="addToCart('Winter Jacket',2499,'jacket.jpg')">
+Add to Cart
+</button>
+
+</div>
+
+</div>
+
+
+<script src="js/auth.js"></script>
+<script src="js/search.js"></script>
+<script src="js/cart.js"></script>
+
+</body>
+</html>
+

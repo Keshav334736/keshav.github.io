@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Watches - Kshopify</title>
+
+<link rel="stylesheet" href="css/styles1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+<style>
+
+h1{
+text-align:center;
+margin-top:40px;
+font-size:32px;
+}
+
+/* PRODUCTS */
+
+.products{
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+flex-wrap:wrap;
+padding:20px;
+}
+
+.product-card{
+background:white;
+padding:20px;
+border-radius:12px;
+width:260px;
+box-shadow:0 6px 14px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.product-card:hover{
+transform:translateY(-8px);
+box-shadow:0 12px 25px rgba(0,0,0,0.3);
+}
+
+.product-card img{
+width:100%;
+height:170px;
+object-fit:contain;
+}
+
+/* PRICE */
+
+.price{
+font-size:20px;
+font-weight:bold;
+color:#B12704;
+margin-top:10px;
+}
+
+.old-price{
+text-decoration:line-through;
+color:gray;
+font-size:14px;
+margin-left:6px;
+}
+
+.discount{
+background:#cc0c39;
+color:white;
+font-size:12px;
+padding:3px 8px;
+border-radius:5px;
+margin-left:6px;
+}
+
+.desc{
+font-size:14px;
+color:#555;
+margin:10px 0;
+}
+
+/* BUTTONS */
+
+.buy{
+background:#ff9900;
+border:none;
+padding:10px;
+margin-top:10px;
+width:100%;
+cursor:pointer;
+font-weight:bold;
+border-radius:5px;
+}
+
+.buy:hover{
+background:#f08804;
+}
+
+.cart{
+background:#232f3e;
+color:white;
+border:none;
+padding:10px;
+margin-top:5px;
+width:100%;
+cursor:pointer;
+font-weight:bold;
+border-radius:5px;
+}
+
+.cart:hover{
+background:#111a24;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+.products{
+flex-direction:column;
+align-items:center;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="navbar">
+
+<div class="nav-logo border">
+<div class="logo"></div>
+</div>
+
+<div class="nav-address border">
+<p class="add-first">Deliver to</p>
+<div class="add-icon">
+<i class="fa-solid fa-location-dot"></i>
+<p class="add-second">India</p>
+</div>
+</div>
+
+<!-- FIXED SEARCH BAR -->
+
+<div class="nav-search">
+
+<select class="search-select">
+<option>All</option>
+</select>
+
+<input class="search-input" placeholder="Search Kshopify" id="searchBox">
+
+<div class="searchicon" onclick="searchProduct()">
+<i class="fa-solid fa-magnifying-glass"></i>
+</div>
+
+</div>
+
+<div class="nav-signin border" id="signinBox">
+<p><span id="userText">Hello, sign in</span></p>
+</div>
+
+<div class="nav-cart border"
+onclick="openCart()"
+onmouseover="showCartPreview()"
+onmouseout="hideCartPreview()"
+style="position:relative">
+
+<i class="fa-solid fa-cart-arrow-down"></i>
+Cart (<span id="cartCount">0</span>)
+
+<div id="cartPreview"
+style="display:none;position:absolute;background:white;color:black;width:250px;right:0;top:40px;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,0.2);z-index:1000">
+</div>
+
+</div>
+
+</div>
+
+<!-- PANEL MENU -->
+
+<div class="pannel">
+
+<div class="pannel-all">
+<a href="all.html" style="text-decoration:none;color:white;">
+<i class="fa-solid fa-bars"></i> All
+</a>
+</div>
+
+<div class="pannel-ops">
+<a href="index.html" style="text-decoration:none;color:white;">Home</a>
+<a href="about.html" style="text-decoration:none;color:white;">About Us</a>
+<a href="service.html" style="text-decoration:none;color:white;">Customer Service</a>
+<a href="categories.html" style="text-decoration:none;color:white;">Categories</a>
+<a href="contact.html" style="text-decoration:none;color:white;">Contact Us</a>
+</div>
+
+<div class="pannel-deals">
+Shop deals in electronics
+</div>
+
+</div>
+
+</header>
+
+
+<h1>Popular Smart Watches</h1>
+
+
+<div class="products">
+
+<div class="product-card">
+
+<img src="images/applewatch.jpg">
+
+<h3>Apple Watch Series 9</h3>
+
+<div class="price">
+₹41,900
+<span class="old-price">₹45,900</span>
+<span class="discount">9% off</span>
+</div>
+
+<p class="desc">
+Advanced health tracking smartwatch with ECG and fitness monitoring.
+</p>
+
+<button class="buy"
+onclick="buyNow('Apple Watch Series 9',41900,'applewatch.jpg')">
+Buy Now
+</button>
+
+<button class="cart"
+onclick="addToCart('Apple Watch Series 9',41900,'applewatch.jpg')">
+Add to Cart
+</button>
+
+</div>
+
+
+
+<div class="product-card">
+
+<img src="images/samsungwatch.jpg">
+
+<h3>Samsung Galaxy Watch</h3>
+
+<div class="price">
+₹29,999
+<span class="old-price">₹34,999</span>
+<span class="discount">14% off</span>
+</div>
+
+<p class="desc">
+Samsung smartwatch with AMOLED display and powerful health tracking.
+</p>
+
+<button class="buy"
+onclick="buyNow('Samsung Galaxy Watch',29999,'samsungwatch.jpg')">
+Buy Now
+</button>
+
+<button class="cart"
+onclick="addToCart('Samsung Galaxy Watch',29999,'samsungwatch.jpg')">
+Add to Cart
+</button>
+
+</div>
+
+
+
+<div class="product-card">
+
+<img src="images/boatwatch.jpg">
+
+<h3>Boat Xtend Smart Watch</h3>
+
+<div class="price">
+₹2,799
+<span class="old-price">₹5,999</span>
+<span class="discount">53% off</span>
+</div>
+
+<p class="desc">
+Affordable smartwatch with Alexa support and fitness tracking.
+</p>
+
+<button class="buy"
+onclick="buyNow('Boat Xtend Smart Watch',2799,'boatwatch.jpg')">
+Buy Now
+</button>
+
+<button class="cart"
+onclick="addToCart('Boat Xtend Smart Watch',2799,'boatwatch.jpg')">
+Add to Cart
+</button>
+
+</div>
+
+</div>
+
+<script src="js/auth.js"></script>
+<script src="js/search.js"></script>
+<script src="js/cart.js"></script>
+
+</body>
+</html>
+

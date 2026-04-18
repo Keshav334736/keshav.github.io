@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kshopify</title>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+
+<link rel="stylesheet" href="css/styles1.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="navbar">
+
+<div class="nav-logo ">
+<div class="logo"></div>
+</div>
+
+<div class="nav-address">
+  <p class="add-first">Deliver to</p>
+  <div class="add-icon">
+    <i class="fa-solid fa-location-dot"></i>
+    <p class="add-second">India</p>
+  </div>
+</div>
+
+<div class="nav-search">
+
+<select class="search-select">
+<option>All</option>
+</select>
+
+<div style="position:relative;width:100%;">
+
+<input
+class="search-input"
+placeholder="Search Kshopify"
+id="searchBox"
+onkeyup="showSuggestions()">
+
+<div id="suggestions"></div>
+</div>
+
+<div class="searchicon" onclick="searchProduct()">
+<i class="fa-solid fa-magnifying-glass"></i>
+</div>
+
+</div>
+
+<div class="nav-signin " id="signinBox">
+<p><span id="userText">Hello, sign in</span></p>
+</div>
+
+<div class="nav-cart"
+onclick="openCart()"
+onmouseover="showCartPreview()"
+onmouseout="hideCartPreview()"
+style="position:relative">
+
+<i class="fa-solid fa-cart-arrow-down"></i>
+Cart (<span id="cartCount">0</span>)
+
+<div id="cartPreview"
+style="display:none;position:absolute;background:white;color:black;width:250px;right:0;top:40px;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,0.2);z-index:1000">
+</div>
+
+</div>
+
+</div>
+
+
+<div class="pannel">
+
+<div class="pannel-all">
+<a href="all.html" style="color:white;text-decoration:none;">
+<i class="fa-solid fa-bars"></i> All
+</a>
+</div>
+
+<div class="pannel-ops">
+<a href="index.html" style="color:white;text-decoration:none;">Home</a>
+<a href="about.html" style="color:white;text-decoration:none;">About Us</a>
+<a href="service.html" style="color:white;text-decoration:none;">Customer Service</a>
+<a href="categories.html" style="color:white;text-decoration:none;">Categories</a>
+<a href="contact.html" style="color:white;text-decoration:none;">Contact Us</a>
+</div>
+
+<div class="pannel-deals">
+Shop deals in electronics
+</div>
+
+</div>
+
+</header>
+
+
+<div class="hero-section">
+
+<button class="arrow left" onclick="prevSlide()">❮</button>
+
+<img id="sliderImage" src="images/hero1.jpg">
+
+<div class="hero-msg">
+<p>
+You are in Kshopify.com. You can also shop on Kshopify India
+for millions of products with fast local delivery.
+</p>
+</div>
+
+<button class="arrow right" onclick="nextSlide()">❯</button>
+
+</div>
+
+
+<div class="shop-section">
+
+
+
+<div class="box">
+<div class="box-content">
+<h2>Headphones</h2>
+<div class="box-img" style="background-image:url('images/box2_image.jpg');"></div>
+<a href="headphones.html"  class="btn btn-primary mt-2">See more</a>
+</div>
+</div>
+
+<div class="box">
+<div class="box-content">
+<h2>Smart Phone</h2>
+<div class="box-img" style="background-image:url('images/box3_image.jpg');"></div>
+<a href="smartphones.html"  class="btn btn-primary mt-2">See more</a>
+</div>
+</div>
+
+<div class="box">
+<div class="box-content">
+<h2>Smart Watch</h2>
+<div class="box-img" style="background-image:url('images/box4_image.jpg');"></div>
+<a href="smartwatches.html"  class="btn btn-primary mt-2">See more</a>
+</div>
+</div>
+
+<div class="box">
+<div class="box-content">
+<h2>Shoes</h2>
+<div class="box-img" style="background-image:url('images/box6_image.jpg');"></div>
+<a href="shoes.html"  class="btn btn-primary mt-2">See more</a>
+</div>
+</div>
+
+<div class="box">
+<div class="box-content">
+<h2>Clothes</h2>
+<div class="box-img" style="background-image:url('images/box7_image.jpg');"></div>
+<a href="clothes.html" class="btn btn-primary mt-2">See more</a>
+</div>
+</div>
+
+<div class="box">
+<div class="box-content">
+<h2>PS5</h2>
+<div class="box-img" style="background-image:url('images/box8_image.jpg');"></div>
+<a href="ps5.html"  class="btn btn-primary mt-2">See more</a>
+</div>
+</div>
+
+</div>
+
+
+<footer>
+
+<div class="foot-panel1" onclick="scrollToTop()">
+<p>Back To Top</p>
+</div>
+
+<div class="foot-panel3">
+<div class="logo"></div>
+</div>
+
+<div class="foot-panel4">
+<div class="pages">
+<a>All rights are reserved</a>
+<a>Privacy Notice</a>
+<a>Your Ads Privacy Choices</a>
+</div>
+
+<div class="copyright">
+© 1996–2026, KShopify.com
+</div>
+</div>
+
+</footer>
+
+<script>
+const isLoggedIn = localStorage.getItem("isLoggedIn");
+const userName = localStorage.getItem("userName");
+
+const userText = document.getElementById("userText");
+const signinBox = document.getElementById("signinBox");
+
+if (isLoggedIn === "true" && userName) {
+userText.innerText = "Hello, " + userName;
+
+signinBox.onclick = function () {
+if (confirm("Do you want to logout?")) {
+localStorage.removeItem("isLoggedIn");
+localStorage.removeItem("userName");
+location.reload();
+}
+};
+
+} else {
+signinBox.onclick = function () {
+window.location.href = "signin.html";
+};
+}
+
+function scrollToTop(){
+window.scrollTo({top:0,behavior:"smooth"});
+}
+</script>
+
+<script src="js/auth.js"></script>
+<script src="js/search.js"></script>
+<script src="js/cart.js"></script>
+
+<script>
+let images = ["images/hero1.jpg","images/hero2.jpg","images/hero3.jpg"];
+let index = 0;
+
+function showSlide(){
+document.getElementById("sliderImage").src = images[index];
+}
+
+function nextSlide(){
+index = (index + 1) % images.length;
+showSlide();
+}
+
+function prevSlide(){
+index = (index - 1 + images.length) % images.length;
+showSlide();
+}
+
+setInterval(nextSlide, 3000);
+</script>
+
+</body>
+</html>

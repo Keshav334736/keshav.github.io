@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Kshopify</title>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="css/styles1.css">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+color:white;
+}
+
+
+.contact-bg{
+position:relative;
+background-image:url("images/contact.jpg"); 
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px 15px;
+}
+
+.contact-bg::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+z-index:0;
+}
+
+
+.contact-container{
+position:relative;
+z-index:1;
+display:flex;
+justify-content:center;
+align-items:center;
+width:100%;
+}
+
+
+.card{
+width:420px;
+border-radius:15px;
+animation:fadeIn 0.8s ease-in-out;
+background: rgba(255,255,255,0.15) !important;
+backdrop-filter: blur(12px);
+border:1px solid rgba(255,255,255,0.2);
+color:white;
+}
+
+
+.form-control{
+background: rgba(255,255,255,0.2);
+border:none;
+color:white;
+}
+
+.form-control::placeholder{
+color:#ddd;
+}
+
+.form-control:focus{
+background: rgba(255,255,255,0.3);
+color:white;
+box-shadow:none;
+}
+
+/* LABEL */
+.form-label{
+color:#f1f1f1;
+}
+
+/* BUTTON */
+.btn-primary{
+background:#2563eb;
+border:none;
+transition:0.3s;
+}
+
+.btn-primary:hover{
+background:#1e40af;
+transform:scale(1.03);
+}
+
+
+.error{
+color:red;
+font-size:14px;
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+
+@media(max-width:500px){
+.card{
+width:100%;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+<div class="pannel">
+
+<div class="pannel-all">
+<a href="all.html" style="color:white;text-decoration:none;">
+<i class="fa-solid fa-bars"></i> All
+</a>
+</div>
+
+<div class="pannel-ops">
+<a href="index.html" style="color:white;text-decoration:none;">Home</a>
+<a href="about.html" style="color:white;text-decoration:none;">About Us</a>
+<a href="service.html" style="color:white;text-decoration:none;">Customer Service</a>
+<a href="categories.html" style="color:white;text-decoration:none;">Categories</a>
+<a href="contact.html" style="color:white;text-decoration:none;">Contact Us</a>
+</div>
+
+<div class="pannel-deals">
+Shop deals in electronics
+</div>
+
+</div>
+</header>
+
+<!-- CONTACT FORM -->
+<div class="contact-bg">
+<div class="contact-container">
+
+<div class="card shadow-lg p-4">
+
+<h2 class="text-center mb-4">Contact Us</h2>
+
+<form id="contactForm" onsubmit="return validateForm()">
+
+<!-- NAME -->
+<div class="mb-3">
+<label class="form-label">Name</label>
+<input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+<span id="nameerror" class="error"></span>
+</div>
+
+<!-- EMAIL -->
+<div class="mb-3">
+<label class="form-label">Email</label>
+<input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+<span id="emailerror" class="error"></span>
+</div>
+
+<!-- MESSAGE -->
+<div class="mb-3">
+<label class="form-label">Message</label>
+<textarea class="form-control" id="message" rows="4" placeholder="Enter your message" required></textarea>
+<span id="messageerror" class="error"></span>
+</div>
+
+<button type="submit" class="btn btn-primary w-100">
+Send Message
+</button>
+
+</form>
+
+</div>
+</div>
+</div>
+
+
+<script>
+function validateForm(){
+
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+
+    var isvalid = true;
+
+    // NAME VALIDATION
+    if(!name.match(/^[a-zA-Z\s]+$/)){
+        document.getElementById("nameerror").innerHTML = "Please enter a valid name";
+        isvalid = false;
+    } else {
+        document.getElementById("nameerror").innerHTML = "";
+    }
+
+    // EMAIL VALIDATION
+    if(!email.match(/^\S+@\S+\.\S+$/)){
+        document.getElementById("emailerror").innerHTML = "Please enter a valid email";
+        isvalid = false;
+    } else {
+        document.getElementById("emailerror").innerHTML = "";
+    }
+
+    // MESSAGE VALIDATION
+    if(message === ""){
+        document.getElementById("messageerror").innerHTML = "Message cannot be empty";
+        isvalid = false;
+    } else {
+        document.getElementById("messageerror").innerHTML = "";
+    }
+
+    if(isvalid){
+        const body =
+        "Name: " + name + "%0A" +
+        "Email: " + email + "%0A%0A" +
+        message;
+
+        window.open(
+        "https://mail.google.com/mail/?view=cm&fs=1&to=keshavrauniyar78@gmail.com&su=KShopify Contact&body=" + body,
+        "_blank"
+        );
+    }
+
+    return isvalid;
+}
+</script>
+
+</body>
+</html>
+
+
